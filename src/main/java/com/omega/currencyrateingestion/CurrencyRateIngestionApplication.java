@@ -1,0 +1,20 @@
+package com.omega.currencyrateingestion;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
+
+@SpringBootApplication
+public class CurrencyRateIngestionApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CurrencyRateIngestionApplication.class, args);
+	}
+
+	@Bean
+	public RestTemplate getRestTemplate(){
+		return new RestTemplate();
+	}
+
+}
