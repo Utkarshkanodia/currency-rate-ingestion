@@ -1,7 +1,6 @@
 package com.omega.currencyrateingestion.service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ import com.omega.currencyglobalcore.dao.CurrencyDataDao;
 import com.omega.currencyglobalcore.dao.CurrencyRateDao;
 import com.omega.currencyglobalcore.dao.entity.CurrencyDataEntity;
 import com.omega.currencyglobalcore.dao.entity.CurrencyRateEntity;
+import com.omega.currencyglobalcore.utility.Helper;
 
 @Service
 public class CurrencyRateService {
@@ -54,7 +54,7 @@ public class CurrencyRateService {
                 body.entrySet().forEach(set -> {
                     entityList.add(
                             CurrencyRateEntity.builder().fromCurrency(currencyData.getCode()).toCurrency(set.getKey())
-                                    .coversionRate(set.getValue()).date(new Date()).build());
+                                    .coversionRate(set.getValue()).date(Helper.getTodayDate()).build());
                 });
             }
             try {
